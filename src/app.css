@@ -1,0 +1,34 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+  font-family: sans-serif;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto repeat(4, 1fr);
+  grid-template-rows: auto repeat(3, 1fr) auto;
+  grid-template-areas:
+    "header header header header header"
+    "sidebar content content content plot"
+    "sidebar content content content plot"
+    "sidebar content content content test"
+    "footer footer footer footer footer";
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: sidebar;
+}
+
+footer {
+  grid-area: footer;
+}
+
+div.plot {
+  grid-area: plot;
+}
