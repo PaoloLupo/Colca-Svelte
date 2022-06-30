@@ -2,12 +2,12 @@
   import Header from "./components/Header.svelte";
   import UserRegistration from "./components/UserRegistration.svelte";
   import Footer from "./components/Footer.svelte";
-  import Plotter from "./components/Plotter.svelte";
+  import Plotting from "./components/Plotting.svelte";
 </script>
 
 <main>
   <UserRegistration />
   <Header />
-  <Plotter />
+  <Plotting />
   <Footer />
 </main>

@@ -4,17 +4,18 @@
 @tailwind utilities;
 
 main {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
   display: grid;
-  grid-template-columns: auto repeat(4, 1fr);
+  grid-template-columns: auto repeat(5, 1fr);
   grid-template-rows: auto repeat(3, 1fr) auto;
   grid-template-areas:
-    "header header header header header"
-    "sidebar content content content plot"
-    "sidebar content content content plot"
-    "sidebar content content content test"
-    "footer footer footer footer footer";
+    "header header header header header header"
+    "sidebar content content content plot plot"
+    "sidebar content content content plot plot"
+    "sidebar content content content test test"
+    "footer footer footer footer footer footer";
 }
 
 header {
