@@ -3,6 +3,7 @@ import CONSTANTS from "../constants";
 
 // Variable that will be used in user registration
 export const isOverlayOpen = writable(false);
+export const isPropsEditable = writable(false);
 
 export const user = writable({
   name: String,

@@ -33,3 +33,7 @@ footer {
 div.plot {
   grid-area: plot;
 }
+
+div.content {
+  grid-area: content;
+}
