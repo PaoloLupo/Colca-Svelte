@@ -1,13 +1,16 @@
 <script lang="ts">
   import { isPropsEditable } from "../store/user";
   import { createColumn, listColumns } from "../store/colProps";
+  import { deleteColumn } from "../store/colProps.js";
 </script>
 
 <div>
   {#if $isPropsEditable}
     <div class="content fixed items-start justify-start ">
-      <ul class="w-90 menu max-h-screen  bg-neutral p-4 text-base-content">
-        <button class="btn btn-square" on:click={createColumn}>
+      <ul class="w-90 menu  bg-neutral p-4 text-base-content">
+        <!-- Sidebar content here -->
+        <p class="text-lg font-bold">Dimensiones</p>
+        <button class="btn btn-success btn-square" on:click={createColumn}>
           <svg
             class="h-6 w-6"
             fill="none"
@@ -23,10 +26,9 @@
           </svg>
           Add
         </button>
-        <!-- Sidebar content here -->
-        <p class="text-lg font-bold">Dimensiones</p>
+
         {#each $listColumns as column}
-          <div class="flex flex-row items-center space-x-2 space-y-4">
+          <div class="flex flex-row items-center  space-x-2 space-y-4">
             <input
               type="checkbox"
               bind:checked={column.selected}
@@ -37,11 +39,9 @@
               bind:value={column.name}
               class="input input-bordered max-w-xs"
             />
-            <div class="form-control ">
+            <div class="items-center ">
               <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label class="label">
-                <span class="label-text"> Altura</span>
-              </label>
+
               <label class="input-group">
                 <input
                   type="number"
@@ -56,9 +56,7 @@
             </div>
             <div class="form-control ">
               <!-- svelte-ignore a11y-label-has-associated-control -->
-              <label class="label">
-                <span class="label-text"> Ancho</span>
-              </label>
+
               <label class="input-group">
                 <input
                   type="number"
@@ -71,6 +69,24 @@
                 <span>cm</span>
               </label>
             </div>
+            <button
+              class="btn btn-error btn-square"
+              on:click={deleteColumn(column)}
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                /></svg
+              >
+            </button>
           </div>
         {/each}
       </ul>

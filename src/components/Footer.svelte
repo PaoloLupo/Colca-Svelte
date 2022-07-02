@@ -4,7 +4,7 @@
 
 <footer>
   <div class="flex flex-row bg-neutral">
-    <div class="dropdown-top dropdown">
+    <div class="dropdown dropdown-top">
       <!-- svelte-ignore a11y-label-has-associated-control -->
       <label tabindex="0" class="btn  btn-xs rounded-none">
         <svg
@@ -24,6 +24,7 @@
       <ul tabindex="0" class="dropdown-content menu bg-base-100 p-2 shadow">
         <!-- svelte-ignore a11y-missing-attribute -->
         <li><a>Item 1</a></li>
+        <!-- svelte-ignore a11y-missing-attribute -->
         <li><a>Item 2</a></li>
       </ul>
     </div>

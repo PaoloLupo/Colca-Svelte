@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "colca",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -56,10 +56,13 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 720,
         "resizable": true,
         "title": "Colca",
-        "width": 800
+        "width": 1280,
+        "minHeight": 720,
+        "minWidth": 1280,
+        "transparent": true
       }
     ]
   }
