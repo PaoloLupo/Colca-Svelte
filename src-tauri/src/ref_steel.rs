@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use crate::types::*;
+use std::collections::HashMap;
 
 /// `ReSteelKind`
 /// The kind of steel used in the project.
@@ -32,7 +32,6 @@ impl RefSteelKind {
         }
     }
 }
-
 
 #[derive(Debug, Clone, Copy)]
 pub struct RefSteel {
@@ -82,7 +81,6 @@ impl RefSteel {
     }
 }
 
-
 fn calculate_total_area_refsteel(vec_re_steel: &Vec<RefSteel>) -> CircularSteelArea {
     let mut total_area: CircularSteelArea = 0.0;
     for re_steel in vec_re_steel {
@@ -91,24 +89,25 @@ fn calculate_total_area_refsteel(vec_re_steel: &Vec<RefSteel>) -> CircularSteelA
     total_area
 }
 
-fn calculate_number_ref_steel(total_ref_steel_area: CircularSteelArea, selected_proy_ref_steel: Vec<RefSteel>) -> HashMap<u8, RefSteelKind> {
-    let mut number_ref_steel: HashMap<u8, RefSteelKind> = HashMap::new();
-    let mut total_area: CircularSteelArea = 0.0;
-    for ref_steel in selected_proy_ref_steel {
-        total_area += ref_steel.area;
-    }
-    let mut i: u8 = 0;
-    for re_steel in selected_proy_ref_steel {
-        let mut area_percentage: f64 = re_steel.area / total_area;
-        let mut number_steel: u8 = (area_percentage * total_ref_steel_area as f64) as u8;
-        number_ref_steel.insert(i, re_steel.kind);
-        i += 1;
-    }
-    number_ref_steel
-}
+// fn calculate_number_ref_steel(total_ref_steel_area: CircularSteelArea, selected_proy_ref_steel: Vec<RefSteel>) -> HashMap<u8, RefSteelKind> {
+//     let mut number_ref_steel: HashMap<u8, RefSteelKind> = HashMap::new();
+//     let mut total_area: CircularSteelArea = 0.0;
+//     for ref_steel in selected_proy_ref_steel {
+//         total_area += ref_steel.area;
+//     }
+//     let mut i: u8 = 0;
+//     for re_steel in selected_proy_ref_steel {
+//         let mut area_percentage: f64 = re_steel.area / total_area;
+//         let mut number_steel: u8 = (area_percentage * total_ref_steel_area as f64) as u8;
+//         number_ref_steel.insert(i, re_steel.kind);
+//         i += 1;
+//     }
+//     number_ref_steel
+// }
 
 /// STIRRUPS
 
+#[derive(Debug)]
 pub enum StirrupsKind {
     Ties,
     Spirals,
@@ -124,10 +123,11 @@ impl StirrupsKind {
     }
 }
 
+#[derive(Debug)]
 pub struct Stirrups {
     kind: StirrupsKind,
-    phi_factor: PhiFactor,
-    pn_factor: FactorTransverseReinforcement,
+    pub phi_factor: PhiFactor,
+    pub pn_factor: FactorTransverseReinforcement,
 }
 
 impl Stirrups {
@@ -147,22 +147,13 @@ impl Stirrups {
     }
 }
 
-
+#[derive(Debug)]
 pub struct InitialPercentageRefSteel {
-    pub(crate) percentage: f64,
+    pub percentage: f64,
 }
 
 impl InitialPercentageRefSteel {
     pub fn new(percentage: f64) -> InitialPercentageRefSteel {
-        InitialPercentageRefSteel {
-            percentage,
-        }
+        InitialPercentageRefSteel { percentage }
     }
 }
-
-
-
-
-
-
-

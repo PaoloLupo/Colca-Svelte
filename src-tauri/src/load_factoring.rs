@@ -1,6 +1,7 @@
-use crate::types::*;
 use crate::code_design::CodeDesign;
+use crate::types::*;
 
+#[derive(Debug)]
 pub struct FactoredLoad {
     normative: CodeDesign,
     live_load_factor: LoadFactor,
@@ -20,7 +21,6 @@ impl FactoredLoad {
                 live_load,
                 dead_load,
                 factored_load: ACI_LIVE_LOAD_FACTOR * live_load + ACI_DEAD_LOAD_FACTOR * dead_load,
-
             },
             // TODO Check if this is correct
             CodeDesign::NTP => FactoredLoad {

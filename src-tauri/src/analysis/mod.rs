@@ -1,1 +1,1 @@
-mod axial_design;
+pub mod axial_design;

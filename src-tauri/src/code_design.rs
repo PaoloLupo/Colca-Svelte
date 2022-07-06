@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub enum CodeDesign {
     ACI,
     NTP,
@@ -12,4 +13,3 @@ impl CodeDesign {
         }
     }
 }
-

@@ -2,8 +2,11 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
+
+use crate::analysis::axial_design::axial_calculate_column_area;
+use crate::frontend_functions::new_init_column;
 use tauri::Manager;
-use window_vibrancy::{apply_blur, apply_mica};
+use window_vibrancy::apply_mica;
 
 mod analysis;
 mod code_design;
@@ -15,39 +18,51 @@ mod material_props;
 mod ref_steel;
 mod types;
 
-// use directories::ProjectDirs;
-use bincode::serialize_into;
-use serde::{Deserialize, Serialize};
-
-use std::collections::HashMap;
-use std::fs::File;
-use std::io::BufWriter;
-
-#[derive(Serialize, Deserialize, PartialEq, Debug)]
-struct UserDataProject {
-    name: String,
-    author: String,
-    company: String,
-}
-
-#[derive(Serialize, Deserialize, PartialEq, Debug)]
-struct Project {
-    proj_description: UserDataProject,
-    // selected_resteel: Vec<ReSteel>,
-}
-
-impl Project {
-    fn create_tmp_project() -> Project {
-        Project {
-            proj_description: UserDataProject {
-                name: TMP_PROY_NAME.parse().unwrap(),
-                author: TMP_PROY_AUTHOR.parse().unwrap(),
-                company: TMP_PROY_COMPANY.parse().unwrap(),
-            },
-        }
-    }
-}
+// #[derive(Serialize, Deserialize, PartialEq, Debug)]
+// struct UserDataProject {
+//     name: String,
+//     author: String,
+//     company: String,
+// }
+//
+// #[derive(Serialize, Deserialize, PartialEq, Debug)]
+// struct Project {
+//     proj_description: UserDataProject,
+//     // selected_resteel: Vec<ReSteel>,
+// }
+//
+// impl Project {
+//     fn create_tmp_project() -> Project {
+//         Project {
+//             proj_description: UserDataProject {
+//                 name: TMP_PROJECT_NAME.parse().unwrap(),
+//                 author: TMP_PROJECT_AUTHOR.parse().unwrap(),
+//                 company: TMP_PROJECT_COMPANY.parse().unwrap(),
+//             },
+//         }
+//     }
+// }
 fn main() {
+    let column = new_init_column(
+        "Column".to_string(),
+        vec!["Axial".to_string()],
+        "ACI".to_string(),
+        100.0,
+        200.0,
+        vec![10.0, 15.0],
+        "21 MPa".to_string(),
+        "Grado 60".to_string(),
+        vec!["6mm".to_string(), "8mm".to_string()],
+        0.02,
+        "rectangulares".to_string(),
+    );
+    let area_axial = axial_calculate_column_area(&column);
+
+    println!(
+        "la columna es{:?} el area calculada es {:?}",
+        column, area_axial
+    );
+
     let context = tauri::generate_context!();
     let window = tauri::Builder::default()
         .setup(|app| {

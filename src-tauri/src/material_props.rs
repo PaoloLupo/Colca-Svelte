@@ -2,24 +2,25 @@ use crate::material_props::ConcreteMaterialKind::C28;
 use crate::types::*;
 
 // STEEL MATERIAL
-pub(crate) enum SteelMaterialKind {
+#[derive(Debug)]
+pub enum SteelMaterialKind {
     Grade60,
 }
 
 impl SteelMaterialKind {
-    pub(crate) fn from_str(s: &str) -> Option<SteelMaterialKind> {
+    pub fn from_str(s: &str) -> Option<SteelMaterialKind> {
         match s {
             "Grado 60" => Some(SteelMaterialKind::Grade60),
             _ => None,
         }
     }
 }
+#[derive(Debug)]
 
 pub struct SteelMaterialProps {
     kind: SteelMaterialKind,
-    yield_strength: f64,
+    pub yield_strength: f64,
 }
-
 
 impl SteelMaterialProps {
     pub fn new(steel_material_kind: SteelMaterialKind) -> SteelMaterialProps {
@@ -32,15 +33,15 @@ impl SteelMaterialProps {
     }
 }
 
-
 // CONCRETE MATERIAL
-pub(crate) enum ConcreteMaterialKind {
+#[derive(Debug)]
+pub enum ConcreteMaterialKind {
     C21,
     C28,
 }
 
 impl ConcreteMaterialKind {
-    pub(crate) fn from_str(s: &str) -> Option<ConcreteMaterialKind> {
+    pub fn from_str(s: &str) -> Option<ConcreteMaterialKind> {
         match s {
             "21 MPa" => Some(ConcreteMaterialKind::C21),
             "28 MPa" => Some(C28),
@@ -49,9 +50,10 @@ impl ConcreteMaterialKind {
     }
 }
 
+#[derive(Debug)]
 pub struct ConcreteMaterialProps {
     kind: ConcreteMaterialKind,
-    compressive_strength: f64,
+    pub compressive_strength: f64,
 }
 
 impl ConcreteMaterialProps {
@@ -68,7 +70,3 @@ impl ConcreteMaterialProps {
         }
     }
 }
-
-
-
-

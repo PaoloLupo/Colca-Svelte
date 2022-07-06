@@ -16,6 +16,7 @@ pub type FactorTransverseReinforcement = f64;
 pub type PhiFactor = f64;
 pub type AnalysisType = String;
 
+pub const PI:f64 = std::f64::consts::PI;
 
 // CONSTANTS
 pub const INITIAL_PERCENTAGE_STEEL: f64 = 0.02; // 2%
