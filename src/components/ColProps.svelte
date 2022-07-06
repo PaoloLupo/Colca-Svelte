@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import { isPropsEditable } from "../store/user";
   import { createColumn, listColumns } from "../store/colProps";
   import { deleteColumn } from "../store/colProps.js";

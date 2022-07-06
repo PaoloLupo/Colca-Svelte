@@ -1555,11 +1555,6 @@ svelte-check@^2.2.7:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
-svelte-generic-crud-table@^1.5.94:
-  version "1.5.94"
-  resolved "https://registry.yarnpkg.com/svelte-generic-crud-table/-/svelte-generic-crud-table-1.5.94.tgz#2d7eee45ffc4493cc6c5d08226ad59702f57ff1a"
-  integrity sha512-kLT9ItW+mylp8OEKmv1cF5BKQ2rPXm26MUcNmolnR4SVRTY34DiThgugtkMZhEG4O7Y7rp1FDK5pIt9bnbXrmg==
-
 svelte-hmr@^0.14.12:
   version "0.14.12"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.14.12.tgz#a127aec02f1896500b10148b2d4d21ddde39973f"
