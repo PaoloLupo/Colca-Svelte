@@ -49,12 +49,13 @@ fn selected_stirrups_type(stirrups: String) -> Stirrups {
     Stirrups::new(stirrups_kind)
 }
 
+#[tauri::command]
 pub fn new_init_column(
     name: String,
     analysis_type: Vec<AnalysisType>,
     normative: String,
-    live_load: f64,
     dead_load: f64,
+    live_load: f64,
     dimensions: Vec<f64>,
     concrete_material: String,
     steel_material: String,

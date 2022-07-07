@@ -36,13 +36,5 @@
         disabled={!$isPropsEditable}
       />
     </div>
-    <!--     TODO centrar los iconos en el medio de manera responsiva-->
-    <div class="navbar-center hidden space-x-4 lg:flex">
-      <button class="btn btn-square"> Axial </button>
-      <button class="btn btn-square"> Biaxial </button>
-      <button class="btn btn-square"> Biaxial </button>
-      <button class="btn btn-square"> Biaxial </button>
-      <button class="btn btn-square"> Biaxial </button>
-    </div>
   </div>
 </header>

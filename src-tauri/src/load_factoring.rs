@@ -1,7 +1,7 @@
 use crate::code_design::CodeDesign;
 use crate::types::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct FactoredLoad {
     normative: CodeDesign,
     live_load_factor: LoadFactor,

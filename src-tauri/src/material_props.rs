@@ -2,7 +2,7 @@ use crate::material_props::ConcreteMaterialKind::C28;
 use crate::types::*;
 
 // STEEL MATERIAL
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub enum SteelMaterialKind {
     Grade60,
 }
@@ -15,8 +15,7 @@ impl SteelMaterialKind {
         }
     }
 }
-#[derive(Debug)]
-
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct SteelMaterialProps {
     kind: SteelMaterialKind,
     pub yield_strength: f64,
@@ -34,7 +33,7 @@ impl SteelMaterialProps {
 }
 
 // CONCRETE MATERIAL
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub enum ConcreteMaterialKind {
     C21,
     C28,
@@ -50,7 +49,7 @@ impl ConcreteMaterialKind {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct ConcreteMaterialProps {
     kind: ConcreteMaterialKind,
     pub compressive_strength: f64,

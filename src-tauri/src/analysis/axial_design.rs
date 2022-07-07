@@ -9,3 +9,4 @@ pub fn axial_calculate_column_area(column: &InitColumn) -> f64 {
     let q = column.initial_percentage_ref_steel.percentage;
     load_factored / (phi_factor * pn_factor * (0.85 * fc * (1.0 - q) + fy * q))
 }
+

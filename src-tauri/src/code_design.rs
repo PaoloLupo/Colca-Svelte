@@ -1,4 +1,4 @@
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub enum CodeDesign {
     ACI,
     NTP,

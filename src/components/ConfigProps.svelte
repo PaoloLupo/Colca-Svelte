@@ -2,6 +2,26 @@
   import { isPropsEditable } from "../store/user";
   import { createColumn, listColumns } from "../store/colProps";
   import { deleteColumn } from "../store/colProps";
+  import { invoke } from "@tauri-apps/api/tauri"
+
+  const invoke_tauri_example = () => {
+    invoke("new_init_column", {
+      name: "example",
+      analysisType: ["example"],
+      normative: "ACI",
+      deadLoad: 240.0,
+      liveLoad: 240.0,
+      dimensions: [10,10],
+      concreteMaterial: "21 MPa",
+      steelMaterial: "Grado 60",
+      selectedRefSteel: ["6mm", "8mm"],
+      percentage: 0.02,
+      stirrups: "rectangulares"
+
+    }).then(response => {
+      console.log(response);
+    });
+  }
 </script>
 
 <div>
@@ -10,7 +30,7 @@
       <ul class="w-90 menu  bg-neutral p-4 text-base-content">
         <!-- Sidebar content here -->
         <p class="text-lg font-bold">Dimensiones</p>
-        <button class="btn btn-success btn-square" on:click={createColumn}>
+        <button class="btn btn-success btn-square" on:click={invoke_tauri_example}>
           <svg
             class="h-6 w-6"
             fill="none"
@@ -24,7 +44,6 @@
               d="M12 6v6m0 0v6m0-6h6m-6 0H6"
             />
           </svg>
-          Add
         </button>
 
         {#each $listColumns as column}

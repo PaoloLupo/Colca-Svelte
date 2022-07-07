@@ -1,7 +1,7 @@
 use crate::types::*;
 
 // GEOMETRY COLUMN
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 enum GeometricColumnShape {
     Circular,
     Rectangular,
@@ -9,7 +9,7 @@ enum GeometricColumnShape {
     // LshapedColumn,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct GeometricPropsColumn {
     shape: GeometricColumnShape,
     dimensions: Vec<f64>,

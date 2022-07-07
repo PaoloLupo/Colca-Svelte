@@ -1,7 +1,9 @@
 <script lang="ts">
-  import ColProps from "./components/ColProps.svelte";
+  import ConfigProps from "./components/ConfigProps.svelte";
+  import Axial from "./components/Axial.svelte";
 </script>
 
 <div class="content">
-  <ColProps />
+  <ConfigProps />
+  <Axial />
 </div>

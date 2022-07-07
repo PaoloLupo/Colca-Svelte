@@ -1,9 +1,8 @@
 use crate::types::*;
-use std::collections::HashMap;
 
 /// `ReSteelKind`
 /// The kind of steel used in the project.
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, serde::Serialize)]
 pub enum RefSteelKind {
     SixMill,
     EightMill,
@@ -33,7 +32,7 @@ impl RefSteelKind {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, serde::Serialize)]
 pub struct RefSteel {
     kind: RefSteelKind,
     diameter: SteelDiameter,
@@ -107,7 +106,7 @@ fn calculate_total_area_refsteel(vec_re_steel: &Vec<RefSteel>) -> CircularSteelA
 
 /// STIRRUPS
 
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub enum StirrupsKind {
     Ties,
     Spirals,
@@ -123,7 +122,7 @@ impl StirrupsKind {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct Stirrups {
     kind: StirrupsKind,
     pub phi_factor: PhiFactor,
@@ -147,7 +146,7 @@ impl Stirrups {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, serde::Serialize)]
 pub struct InitialPercentageRefSteel {
     pub percentage: f64,
 }

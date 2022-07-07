@@ -6,7 +6,7 @@ use crate::material_props::{ConcreteMaterialProps, SteelMaterialProps};
 use crate::ref_steel::{InitialPercentageRefSteel, RefSteel, Stirrups};
 use crate::types::*;
 
-#[derive(Debug)]
+#[derive(Clone, serde::Serialize, Debug)]
 pub struct InitColumn {
     pub name: String,
     pub analysis_type: Vec<AnalysisType>,
@@ -19,8 +19,5 @@ pub struct InitColumn {
     pub stirrups_type: Stirrups,
 }
 
-pub fn add_column(column: InitColumn) -> Vec<InitColumn> {
-    let mut columns = Vec::new();
-    columns.push(column);
-    columns
-}
+
+

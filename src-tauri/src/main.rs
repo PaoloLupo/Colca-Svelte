@@ -47,12 +47,12 @@ fn main() {
         "Column".to_string(),
         vec!["Axial".to_string()],
         "ACI".to_string(),
-        100.0,
-        200.0,
-        vec![10.0, 15.0],
+        240.0,
+        300.0,
+        vec![10.0],
         "21 MPa".to_string(),
         "Grado 60".to_string(),
-        vec!["6mm".to_string(), "8mm".to_string()],
+        vec!["6mm".to_string(), "8mm".to_string(), "1/2".to_string()],
         0.02,
         "rectangulares".to_string(),
     );
@@ -72,6 +72,7 @@ fn main() {
                 .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
             Ok(())
         })
+        .invoke_handler(tauri::generate_handler!(new_init_column))
         .run(context)
         .expect("error while running tauri application");
 }
