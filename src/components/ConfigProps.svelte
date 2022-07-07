@@ -1,8 +1,10 @@
 <script>
-  import { isPropsEditable } from "../store/user";
+  import { isPropsEditable, isDimsConfOpen } from "../store/user";
   import { createColumn, listColumns } from "../store/colProps";
   import { deleteColumn } from "../store/colProps";
   import { invoke } from "@tauri-apps/api/tauri"
+  import DimsIcon from "../assets/icons/DimsIcon.svelte";
+  import SteelIcon from "../assets/icons/SteelIcon.svelte";
 
   const invoke_tauri_example = () => {
     invoke("new_init_column", {
@@ -22,15 +24,29 @@
       console.log(response);
     });
   }
+
+  const columns_descriptions_dims = ["Nombre", "Altura (cm)", "Ancho (cm)"]
+  const columns_dims = []
 </script>
 
-<div>
+<div class="plot" >
   {#if $isPropsEditable}
-    <div class="content fixed items-start justify-start ">
-      <ul class="w-90 menu  bg-neutral p-4 text-base-content">
+
+    <div class="p-2 ">
+      <ul class=" bg-neutral p-2 rounded ">
+        <div class="flex flex-row justify-center space-x-4 ">
+          <button class="btn btn-square disabled:bg-info" on:click={()=> isDimsConfOpen.set(true)} disabled={$isDimsConfOpen}>
+            <DimsIcon />
+          </button>
+          <button class="btn btn-square gap-2">
+            <SteelIcon />
+          </button>
+        </div>
+
+
+        {#if $isDimsConfOpen}
         <!-- Sidebar content here -->
-        <p class="text-lg font-bold">Dimensiones</p>
-        <button class="btn btn-success btn-square" on:click={invoke_tauri_example}>
+        <button class="btn btn-success btn-square" on:click={createColumn}>
           <svg
             class="h-6 w-6"
             fill="none"
@@ -45,6 +61,24 @@
             />
           </svg>
         </button>
+        <table>
+          <tr>
+            {#each columns_descriptions_dims as column_description}
+              <th class="text-sm text-gray-600">{column_description}</th>
+            {/each}
+          </tr>
+          {#each $listColumns as column}
+            <tr>
+              {#each column as cell}
+                <td class="text-sm text-gray-600">{cell}</td>
+              {/each}
+              <button disabled> jal</button>
+            </tr>
+          {/each}
+
+        </table>
+
+
 
         {#each $listColumns as column}
           <div class="flex flex-row items-center  space-x-2 space-y-4">
@@ -56,7 +90,7 @@
             <input
               type="text"
               bind:value={column.name}
-              class="input input-bordered max-w-xs"
+              class="input input-bordered w-20"
             />
             <div class="items-center ">
               <!-- svelte-ignore a11y-label-has-associated-control -->
@@ -108,6 +142,7 @@
             </button>
           </div>
         {/each}
+      {/if}
       </ul>
     </div>
   {/if}

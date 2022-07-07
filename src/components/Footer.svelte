@@ -5,7 +5,7 @@
 <footer>
   <div class="flex flex-row items-center bg-neutral">
     <!-- svelte-ignore a11y-label-has-associated-control -->
-    <label tabindex="0" class="btn  btn-xs rounded-none bg-slate-600">
+    <label tabindex="0" class="btn  btn-xs rounded-none bg-slate-600 no-animation">
       <svg
         class="h-5 w-5"
         fill="none"
@@ -21,7 +21,7 @@
       >
       Paolo Cesar
     </label>
-    <div class="dropdown-top dropdown">
+    <div class="dropdown-top dropdown no-animation">
       <label tabindex="0" class="btn btn-xs rounded-none bg-red-800"
         >{$normative}</label
       >

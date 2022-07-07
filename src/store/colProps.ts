@@ -1,7 +1,18 @@
 import { writable } from "svelte/store";
 
 let autoNameId = 1;
+
+// Variables for exporting to rust
+export const analysisType = writable([])
 export const normative = writable("ACI");
+export const deadLoad = writable(0);
+export const liveLoad = writable(0);
+export const dimensions = writable([])
+export const concreteMaterial = writable("21 MPa");
+export const steelMaterial = writable("Grado 60");
+export const selectedRefSteel = writable(["3/8","12mm","1/2","5/8","3/4","1"]);
+export const percentage= writable(0.02);
+export const stirrups= writable("rectangulares");
 
 export let listColumns = writable([
   { selected: true, name: "Col1", height: 30, width: 30 },

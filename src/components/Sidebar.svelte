@@ -13,6 +13,4 @@
     </button>
     <button class="btn btn-square gap-2">
     </button>
-
-
 </div>
