@@ -5,6 +5,7 @@ import CONSTANTS from "../constants";
 export const isOverlayOpen = writable(false);
 export const isPropsEditable = writable(false);
 export const isDimsConfOpen = writable(false);
+export const isSteelConfOpen = writable(false);
 
 export const user = writable({
   name: String,

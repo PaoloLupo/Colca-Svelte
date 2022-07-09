@@ -64,14 +64,7 @@ fn main() {
     );
 
     let context = tauri::generate_context!();
-    let window = tauri::Builder::default()
-        .setup(|app| {
-            let win = app.get_window("main").unwrap();
-            #[cfg(target_os = "windows")]
-            apply_mica(&win)
-                .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
-            Ok(())
-        })
+    tauri::Builder::default()
         .invoke_handler(tauri::generate_handler!(new_init_column))
         .run(context)
         .expect("error while running tauri application");
